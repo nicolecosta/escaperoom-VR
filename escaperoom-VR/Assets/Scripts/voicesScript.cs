@@ -6,7 +6,6 @@ using TMPro;
 
 public class voicesScript : MonoBehaviour
 {
-    public GameObject voices;
     public List<string> thoughtsList =  new List<string>{
         "you're stupid",
         "you annoy me",
@@ -14,7 +13,10 @@ public class voicesScript : MonoBehaviour
         "WHY DON'T YOU DIE",
         "I'm thinking about toasting myself",
         "you need to grow up",
-        "I can't stand you"
+        "I can't stand you",
+        "I wish you could just go away",
+        "nobody cares about you",
+        "you're a nobody"
         };
     public GameObject target;
 
@@ -26,22 +28,23 @@ public class voicesScript : MonoBehaviour
 
     public GameObject textPrefab;
 
-    public GameObject GM;
-
     private Vector3 textPosition;
-
-    public List<AudioClip> audioList;
 
     private AudioSource audioS;
 
+    private int count;
+
+    private int maxCount;
+
     void Start()
     {
-        StartChangeTime = 4f;
+        count = 0;
+        StartChangeTime = 6f;
         changeTime = StartChangeTime;
         voicesList.Add(transform.GetChild(0).gameObject);
-        GM = GameObject.Find("GameManager");
         textPosition = voicesList[0].transform.position;
         audioS = GetComponent<AudioSource>();
+        maxCount = 0;
     }
 
     // Update is called once per frame
@@ -52,13 +55,22 @@ public class voicesScript : MonoBehaviour
             voice.transform.RotateAround(target.transform.position, new Vector3(1,1,1) , 80 * Time.deltaTime);
         }
         
-
         changeTime -= Time.deltaTime;
 
         if(changeTime <= 0){
             changeTime = StartChangeTime;
             newThought();
+            count += 1;
+        }
 
+        if(count >= 40 && maxCount <= 10){
+            count = 0;
+            maxCount += 1;
+            IntantiateNewVoice();
+        }
+
+        if(maxCount >= 10){
+            count = 0;
         }
     }
 
@@ -66,15 +78,12 @@ public class voicesScript : MonoBehaviour
         foreach(GameObject voice in voicesList)
         {
             voice.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = thoughtsList [Random.Range(0, thoughtsList.Count)];
-            audioS.clip = audioList[Random.Range(0, audioList.Count)];
-            audioS.Play();
         }
     }
 
     public void IntantiateNewVoice(){
-        Instantiate(textPrefab,textPosition,Quaternion.identity);
-        audioS.clip = audioList[Random.Range(0, audioList.Count)];
-        audioS.Play();
+        GameObject newVoice = Instantiate(textPrefab,textPosition,Quaternion.identity);
+        newVoice.transform.SetParent(this.transform);
     }
 
 
