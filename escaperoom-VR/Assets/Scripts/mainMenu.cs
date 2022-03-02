@@ -5,10 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class mainMenu : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public GameObject text;
+    public GameObject menu;
     void Start()
     {
-        
+        text.SetActive(false);
     }
 
     // Update is called once per frame
@@ -18,15 +19,21 @@ public class mainMenu : MonoBehaviour
     }
 
     public void PlayButton(){
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        text.SetActive(true);
+        menu.SetActive(false);
+        LoadNextSceneAfter(6f);
+        
     }
 
     public void QuitButton(){
         Application.Quit();
     }
 
-    public void MenuButton(){
-        SceneManager.LoadScene("Menu");
+    
+
+    IEnumerator LoadNextSceneAfter(float seconds) {
+        yield return new WaitForSeconds(seconds);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
 }
