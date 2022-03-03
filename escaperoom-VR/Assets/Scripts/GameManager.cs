@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Valve.VR.InteractionSystem;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class GameManager : MonoBehaviour
     public GameObject teleportPoint;
     void Start()
     {
+        teleportPoint.GetComponent<TeleportMarkerBase>().markerActive = false;
         teleportPoint.SetActive(false);
     }
 
@@ -19,6 +21,7 @@ public class GameManager : MonoBehaviour
         if(PasswordPannel.GetComponent<PasswordPannel>().passwordIsCorrect){
             door.GetComponent<Animator>().SetBool("openDoor",true);
             teleportPoint.SetActive(true);
+            teleportPoint.GetComponent<TeleportMarkerBase>().markerActive = true;
             door.GetComponent<AudioSource>().Play(0);
         }
     }

@@ -5,11 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class mainMenu : MonoBehaviour
 {
-    public GameObject text;
     public GameObject menu;
     void Start()
     {
-        text.SetActive(false);
+
     }
 
     // Update is called once per frame
@@ -19,7 +18,6 @@ public class mainMenu : MonoBehaviour
     }
 
     public void PlayButton(){
-        text.SetActive(true);
         menu.SetActive(false);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         
