@@ -52,7 +52,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0
-    functionName: whiteColor
+    functionName: blackColor
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
@@ -94,7 +94,7 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 8.016666
-    functionName: whiteColor
+    functionName: blackColor
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

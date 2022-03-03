@@ -5,6 +5,7 @@ using UnityEngine;
 public class chair : MonoBehaviour
 {
     public GameObject movingPlane;
+    private Vector3 angulo;
     void Start()
     {
         movingPlane = transform.GetChild(0).gameObject;
@@ -14,8 +15,8 @@ public class chair : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(transform.eulerAngles);
-        if(transform.rotation.eulerAngles.x == 0.0f && transform.rotation.eulerAngles.z == 0.0f){
+        angulo = new Vector3(0,transform.rotation.eulerAngles.y,0);
+        if(transform.rotation.eulerAngles == angulo ){
             movingPlane.gameObject.SetActive(true);
         }
         else{

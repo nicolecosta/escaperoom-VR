@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PasswordPannel : MonoBehaviour
 {
-    public List<int> passwordCorrect =  new List<int>{4,2,9,6,1};
+    public List<int> passwordCorrect =  new List<int>{4,2,5,8,1};
     public List<int> currentPassword;
     public bool passwordIsCorrect;
     public GameObject circleLight;

@@ -9,7 +9,7 @@ public class EndingGameManager : MonoBehaviour
     private float endingTime;
     void Start()
     {
-        startEndingTime = 25f;
+        startEndingTime = 15f;
         endingTime = startEndingTime;
     }
 

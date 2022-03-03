@@ -7,9 +7,10 @@ public class GameManager : MonoBehaviour
     public GameObject door;
     public GameObject PasswordPannel;
     public List<GameObject> keyObjectsList;
+    public GameObject teleportPoint;
     void Start()
     {
-
+        teleportPoint.SetActive(false);
     }
 
     // Update is called once per frame
@@ -17,6 +18,7 @@ public class GameManager : MonoBehaviour
     {
         if(PasswordPannel.GetComponent<PasswordPannel>().passwordIsCorrect){
             door.GetComponent<Animator>().SetBool("openDoor",true);
+            teleportPoint.SetActive(true);
             door.GetComponent<AudioSource>().Play(0);
         }
     }

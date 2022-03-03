@@ -33,11 +33,11 @@ public class telaTv : MonoBehaviour
         thisRenderer.material.color = Color.blue;
     }
 
-    public void whiteColor(){
-        thisRenderer.material.color = Color.white;
+    public void blackColor(){
+        thisRenderer.material.color = Color.black;
     }
 
     public void pinkColor(){
-        thisRenderer.material.color = new Color(1f, 0.2f, 0.4f, 0.3f);
+        thisRenderer.material.color = new Color(1f, 0f, 0.82f, 0.3f);
     }
 }

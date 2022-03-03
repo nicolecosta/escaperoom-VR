@@ -21,8 +21,7 @@ public class mainMenu : MonoBehaviour
     public void PlayButton(){
         text.SetActive(true);
         menu.SetActive(false);
-        //play audio
-        LoadNextSceneAfter(6f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         
     }
 
