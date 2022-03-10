@@ -16,7 +16,8 @@ public class chair : MonoBehaviour
     void Update()
     {
         angulo = new Vector3(0,transform.rotation.eulerAngles.y,0);
-        if(transform.rotation.eulerAngles == angulo ){
+
+        if(transform.rotation.eulerAngles.x < 0.05 && transform.rotation.eulerAngles.x > -0.05 && transform.rotation.eulerAngles.z < 0.05 && transform.rotation.eulerAngles.z > -0.05){
             movingPlane.gameObject.SetActive(true);
         }
         else{

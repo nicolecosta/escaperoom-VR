@@ -16,7 +16,7 @@ public class fanSpin : MonoBehaviour
     {
         t += Time.deltaTime;
         yRotation = 360 * t;
-        transform.eulerAngles = new Vector3(transform.eulerAngles.x, yRotation, transform.eulerAngles.z);
+        transform.eulerAngles = new Vector3(this.transform.eulerAngles.x, yRotation, this.transform.eulerAngles.z);
     }
 
 }
