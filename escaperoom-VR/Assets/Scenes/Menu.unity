@@ -2250,5 +2250,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Music
       objectReference: {fileID: 0}
+    - target: {fileID: 7825823268922501747, guid: fabc47285ed3e924dacb56eab86cf30f, type: 3}
+      propertyPath: m_Pitch
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 7825823268922501747, guid: fabc47285ed3e924dacb56eab86cf30f, type: 3}
+      propertyPath: Priority
+      value: 108
+      objectReference: {fileID: 0}
+    - target: {fileID: 7825823268922501747, guid: fabc47285ed3e924dacb56eab86cf30f, type: 3}
+      propertyPath: m_Volume
+      value: 0.193
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fabc47285ed3e924dacb56eab86cf30f, type: 3}
